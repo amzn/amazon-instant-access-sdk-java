@@ -26,6 +26,8 @@ public class SubscriptionActivateRequest extends SubscriptionRequest {
 
     protected String productId;
     protected String userId;
+    protected Integer numberOfSubscriptionsInGroup;
+    protected String subscriptionGroupId;
 
     @Override
     public SubscriptionActivateRequest setOperation(InstantAccessOperationValue operationValue) {
@@ -57,16 +59,38 @@ public class SubscriptionActivateRequest extends SubscriptionRequest {
         return this;
     }
 
+    public Integer getNumberOfSubscriptionsInGroup() {
+        return numberOfSubscriptionsInGroup;
+    }
+
+    public SubscriptionActivateRequest setNumberOfSubscriptionsInGroup(Integer numberOfSubscriptionsInGroup) {
+        this.numberOfSubscriptionsInGroup = numberOfSubscriptionsInGroup;
+        return this;
+    }
+
+    public String getSubscriptionGroupId() {
+        return subscriptionGroupId;
+    }
+
+    public SubscriptionActivateRequest setSubscriptionGroupId(String subscriptionGroupId) {
+        this.subscriptionGroupId = subscriptionGroupId;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof SubscriptionActivateRequest)) return false;
         if (!super.equals(o)) return false;
 
         final SubscriptionActivateRequest that = (SubscriptionActivateRequest) o;
 
         if (productId != null ? !productId.equals(that.productId) : that.productId != null) return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
+        if (numberOfSubscriptionsInGroup != null ? !numberOfSubscriptionsInGroup.equals(that.numberOfSubscriptionsInGroup) : that.numberOfSubscriptionsInGroup != null)
+            return false;
+        if (subscriptionGroupId != null ? !subscriptionGroupId.equals(that.subscriptionGroupId) : that.subscriptionGroupId != null)
+            return false;
 
         return true;
     }
@@ -76,6 +100,8 @@ public class SubscriptionActivateRequest extends SubscriptionRequest {
         int result = super.hashCode();
         result = 31 * result + (productId != null ? productId.hashCode() : 0);
         result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (numberOfSubscriptionsInGroup != null ? numberOfSubscriptionsInGroup.hashCode() : 0);
+        result = 31 * result + (subscriptionGroupId != null ? subscriptionGroupId.hashCode() : 0);
         return result;
     }
 
@@ -86,6 +112,8 @@ public class SubscriptionActivateRequest extends SubscriptionRequest {
                 .append("subscriptionId", subscriptionId)
                 .append("productId", productId)
                 .append("userId", userId)
+                .append("numberOfSubscriptionsInGroup", numberOfSubscriptionsInGroup)
+                .append("subscriptionGroupId", subscriptionGroupId)
                 .toString();
     }
 }

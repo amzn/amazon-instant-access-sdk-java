@@ -25,7 +25,8 @@ public enum SubscriptionReasonValue {
     CUSTOMER_SERVICE_REQUEST,
     PAYMENT_PROBLEM,
     TESTING,
-    UNABLE_TO_FULFILL;
+    UNABLE_TO_FULFILL,
+    REASSIGN;
 
     @JsonCreator
     public static SubscriptionReasonValue fromJson(String text) {
