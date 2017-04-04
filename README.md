@@ -3,3 +3,4 @@ Name: Xi He, ID: 81319162
 
 ## Instruction
 1. Download the ZIP file and unzip the file in your PC.
+2. Run the test cases with JUnit to check the coverage.
