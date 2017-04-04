@@ -1,2 +1,4 @@
-# amazon-instant-access-sdk-java
-Java SDK to aid in 3p integration with Instant Access 
+# Amazon-instant-access-sdk-java
+Name: Xi He, ID: 81319162
+
+## Instruction
