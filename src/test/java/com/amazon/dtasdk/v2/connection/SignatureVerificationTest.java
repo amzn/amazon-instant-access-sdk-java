@@ -53,7 +53,7 @@ public class SignatureVerificationTest {
         private Signer signer = new Signer();
         private Exception exception;
 
-        @Override
+        //@Override
         public void handle(String s, org.eclipse.jetty.server.Request jettyRequest,
                 HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException,
                 ServletException {
