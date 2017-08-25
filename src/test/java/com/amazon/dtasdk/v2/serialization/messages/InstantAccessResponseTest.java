@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
  */
 package com.amazon.dtasdk.v2.serialization.messages;
 
-import static org.junit.Assert.assertEquals;
-
+import com.amazon.dtasdk.serializer.JacksonSerializer;
+import com.amazon.dtasdk.serializer.SerializationException;
 import org.junit.Test;
 
-import com.amazon.dtasdk.v2.serialization.serializer.JacksonSerializer;
-import com.amazon.dtasdk.v2.serialization.serializer.SerializationException;
+import static org.junit.Assert.assertEquals;
 
+@Deprecated
 public class InstantAccessResponseTest {
     private JacksonSerializer serializer = new JacksonSerializer();
 
@@ -52,5 +52,4 @@ public class InstantAccessResponseTest {
         assertEquals(GetUserIdSerializableResponseValue.OK, response.getResponse());
         assertEquals("190248", response.getUserId());
     }
-
 }

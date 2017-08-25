@@ -1,12 +1,12 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -29,19 +29,20 @@ import junit.framework.Assert;
 import org.easymock.EasyMock;
 import org.junit.Test;
 
-import com.amazon.dtasdk.v2.serialization.messages.InstantAccessOperationValue;
-import com.amazon.dtasdk.v2.serialization.messages.InstantAccessResponse;
-import com.amazon.dtasdk.v2.serialization.serializer.SerializationException;
-import com.amazon.dtasdk.v2.signature.Credential;
-import com.amazon.dtasdk.v2.signature.CredentialStore;
-import com.amazon.dtasdk.v2.signature.Request;
-import com.amazon.dtasdk.v2.signature.Request.Method;
-import com.amazon.dtasdk.v2.signature.Signer;
-import com.amazon.dtasdk.v2.signature.SigningException;
+import com.amazon.dtasdk.base.InstantAccessOperationValue;
+import com.amazon.dtasdk.base.InstantAccessResponse;
+import com.amazon.dtasdk.serializer.SerializationException;
+import com.amazon.dtasdk.signature.Credential;
+import com.amazon.dtasdk.signature.CredentialStore;
+import com.amazon.dtasdk.signature.Request;
+import com.amazon.dtasdk.signature.Request.Method;
+import com.amazon.dtasdk.signature.Signer;
+import com.amazon.dtasdk.signature.SigningException;
 
 /**
  * Test class for InstantAccessServlet.
  */
+@Deprecated
 public class InstantAccessServletTest {
 
     private static final String RESPONSE = "OK";
@@ -190,7 +191,7 @@ public class InstantAccessServletTest {
         InstantAccessServlet servlet = new InstantAccessServletImpl(new CredentialStore());
 
         // @formatter:off
-        String bodyContent = "{}"; 
+        String bodyContent = "{}";
         // @formatter:on
 
         mockRequest(request, bodyContent, credential);

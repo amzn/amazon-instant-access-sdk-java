@@ -1,12 +1,12 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -14,32 +14,30 @@
  */
 package com.amazon.dtasdk.v2.servlets;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
+import com.amazon.dtasdk.base.InstantAccessRequest;
+import com.amazon.dtasdk.serializer.JacksonSerializer;
+import com.amazon.dtasdk.serializer.SerializationException;
+import com.amazon.dtasdk.signature.CredentialStore;
+import com.amazon.dtasdk.signature.Request;
+import com.amazon.dtasdk.signature.Signer;
+import com.amazon.dtasdk.signature.SigningException;
+import com.amazon.dtasdk.base.InstantAccessOperationValue;
+import com.amazon.dtasdk.base.InstantAccessResponse;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.amazon.dtasdk.v2.serialization.messages.InstantAccessOperationValue;
-import com.amazon.dtasdk.v2.serialization.messages.InstantAccessRequest;
-import com.amazon.dtasdk.v2.serialization.messages.InstantAccessResponse;
-import com.amazon.dtasdk.v2.serialization.serializer.JacksonSerializer;
-import com.amazon.dtasdk.v2.serialization.serializer.SerializationException;
-import com.amazon.dtasdk.v2.signature.CredentialStore;
-import com.amazon.dtasdk.v2.signature.Request;
-import com.amazon.dtasdk.v2.signature.Signer;
-import com.amazon.dtasdk.v2.signature.SigningException;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * <p>
  * This abstract servlet is extended by the {@link PurchaseServlet} and {@link AccountLinkingServlet} in order to
  * implement the Instant Access API. This class should not be used, use the aforementioned classes instead.
  * </p>
- * 
+ *
  */
 public abstract class InstantAccessServlet extends HttpServlet {
     private static final Log log = LogFactory.getLog(InstantAccessServlet.class);
@@ -51,20 +49,20 @@ public abstract class InstantAccessServlet extends HttpServlet {
 
     /**
      * Returns the credential store
-     * 
+     *
      * @return a CredentialStore object with all the credentials
      */
     public abstract CredentialStore getCredentialStore();
 
     /**
      * Processes the request based on the operation
-     * 
+     *
      * @param operation
      *            The operation being called
      * @param requestBody
      *            The content of the message
      * @return a generic InstantAccessResponse<?> containing the result of the operation
-     * 
+     *
      * @throws SerializationException
      * @throws IllegalArgumentException
      */

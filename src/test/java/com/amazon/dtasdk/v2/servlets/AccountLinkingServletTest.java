@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,28 +14,26 @@
  */
 package com.amazon.dtasdk.v2.servlets;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import com.amazon.dtasdk.signature.Credential;
+import com.amazon.dtasdk.signature.CredentialStore;
+import com.amazon.dtasdk.signature.SigningException;
+import com.amazon.dtasdk.v2.serialization.messages.GetUserIdSerializableRequest;
+import com.amazon.dtasdk.v2.serialization.messages.GetUserIdSerializableResponse;
+import com.amazon.dtasdk.v2.serialization.messages.GetUserIdSerializableResponseValue;
+import junit.framework.Assert;
+import org.easymock.EasyMock;
+import org.junit.Test;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import junit.framework.Assert;
-
-import org.easymock.EasyMock;
-import org.junit.Test;
-
-import com.amazon.dtasdk.v2.serialization.messages.GetUserIdSerializableRequest;
-import com.amazon.dtasdk.v2.serialization.messages.GetUserIdSerializableResponse;
-import com.amazon.dtasdk.v2.serialization.messages.GetUserIdSerializableResponseValue;
-import com.amazon.dtasdk.v2.signature.Credential;
-import com.amazon.dtasdk.v2.signature.CredentialStore;
-import com.amazon.dtasdk.v2.signature.SigningException;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 /**
  * Test class for InstantAccessServlet.
  */
+@Deprecated
 public class AccountLinkingServletTest extends InstantAccessServletTest {
 
     private static final GetUserIdSerializableResponseValue GETUSERID_RESPONSE = GetUserIdSerializableResponseValue.FAIL_ACCOUNT_INVALID;

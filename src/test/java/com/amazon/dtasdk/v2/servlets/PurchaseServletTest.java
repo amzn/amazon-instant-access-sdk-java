@@ -1,12 +1,12 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
  * A copy of the License is located at
- * 
+ *
  *  http://aws.amazon.com/apache2.0
- * 
+ *
  * or in the "license" file accompanying this file. This file is distributed
  * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
  * express or implied. See the License for the specific language governing
@@ -14,35 +14,26 @@
  */
 package com.amazon.dtasdk.v2.servlets;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import com.amazon.dtasdk.base.SubscriptionResponse;
+import com.amazon.dtasdk.base.SubscriptionResponseValue;
+import com.amazon.dtasdk.v2.serialization.messages.*;
+import com.amazon.dtasdk.signature.Credential;
+import com.amazon.dtasdk.signature.CredentialStore;
+import com.amazon.dtasdk.signature.SigningException;
+import junit.framework.Assert;
+import org.easymock.EasyMock;
+import org.junit.Test;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import junit.framework.Assert;
-
-import org.easymock.EasyMock;
-import org.junit.Test;
-
-import com.amazon.dtasdk.v2.serialization.messages.FulfillPurchaseRequest;
-import com.amazon.dtasdk.v2.serialization.messages.FulfillPurchaseResponse;
-import com.amazon.dtasdk.v2.serialization.messages.FulfillPurchaseResponseValue;
-import com.amazon.dtasdk.v2.serialization.messages.RevokePurchaseRequest;
-import com.amazon.dtasdk.v2.serialization.messages.RevokePurchaseResponse;
-import com.amazon.dtasdk.v2.serialization.messages.RevokePurchaseResponseValue;
-import com.amazon.dtasdk.v2.serialization.messages.SubscriptionActivateRequest;
-import com.amazon.dtasdk.v2.serialization.messages.SubscriptionDeactivateRequest;
-import com.amazon.dtasdk.v2.serialization.messages.SubscriptionResponse;
-import com.amazon.dtasdk.v2.serialization.messages.SubscriptionResponseValue;
-import com.amazon.dtasdk.v2.signature.Credential;
-import com.amazon.dtasdk.v2.signature.CredentialStore;
-import com.amazon.dtasdk.v2.signature.SigningException;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 /**
  * Test class for InstantAccessServlet.
  */
+@Deprecated
 public class PurchaseServletTest extends InstantAccessServletTest {
 
     private static final FulfillPurchaseResponseValue FULFILL_RESPONSE = FulfillPurchaseResponseValue.FAIL_USER_INVALID;

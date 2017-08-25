@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,13 +14,17 @@
  */
 package com.amazon.dtasdk.v2.serialization.messages;
 
+import com.amazon.dtasdk.base.InstantAccessOperationValue;
+import com.amazon.dtasdk.base.SubscriptionRequest;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
  * A request to activate a subscription for a specified user and product
+ * This activate request is on the deprecation path, please do not use it.
  */
+@Deprecated
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class SubscriptionActivateRequest extends SubscriptionRequest {
 

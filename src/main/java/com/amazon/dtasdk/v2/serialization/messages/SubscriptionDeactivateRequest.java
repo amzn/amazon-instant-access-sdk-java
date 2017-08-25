@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -14,6 +14,10 @@
  */
 package com.amazon.dtasdk.v2.serialization.messages;
 
+import com.amazon.dtasdk.base.InstantAccessOperationValue;
+import com.amazon.dtasdk.base.SubscriptionPeriodValue;
+import com.amazon.dtasdk.base.SubscriptionReasonValue;
+import com.amazon.dtasdk.base.SubscriptionRequest;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -21,7 +25,9 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 /**
  * A request to deactivate a subscription.
  * Includes the reason for deactivation and the period in which it was deactivated.
+ * This deactivate request is on the deprecation path, please do not use it.
  */
+@Deprecated
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class SubscriptionDeactivateRequest extends SubscriptionRequest {
 
