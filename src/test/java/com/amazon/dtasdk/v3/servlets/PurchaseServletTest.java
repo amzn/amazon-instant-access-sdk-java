@@ -21,7 +21,15 @@ import com.amazon.dtasdk.signature.CredentialStore;
 import com.amazon.dtasdk.signature.SigningException;
 import com.amazon.dtasdk.v2.serialization.messages.FulfillPurchaseResponseValue;
 import com.amazon.dtasdk.v2.serialization.messages.RevokePurchaseResponseValue;
-import com.amazon.dtasdk.v3.serialization.messages.*;
+import com.amazon.dtasdk.v3.serialization.messages.FulfillPurchaseRequest;
+import com.amazon.dtasdk.v3.serialization.messages.FulfillPurchaseResponse;
+import com.amazon.dtasdk.v3.serialization.messages.RevokePurchaseRequest;
+import com.amazon.dtasdk.v3.serialization.messages.RevokePurchaseResponse;
+import com.amazon.dtasdk.v3.serialization.messages.SubscriptionActivateRequest;
+import com.amazon.dtasdk.v3.serialization.messages.SubscriptionDeactivateRequest;
+import com.amazon.dtasdk.v3.serialization.messages.SubscriptionGetRequest;
+import com.amazon.dtasdk.v3.serialization.messages.SubscriptionGetResponse;
+import com.amazon.dtasdk.v3.serialization.messages.SubscriptionUpdateRequest;
 import junit.framework.Assert;
 import org.easymock.EasyMock;
 import org.junit.Test;
@@ -286,7 +294,8 @@ public class PurchaseServletTest extends InstantAccessServletTest {
                 "\"subscriptionId\": \"subscriptionId\"," +
                 "\"productId\": \"GamePack1\"," +
                 "\"userId\": \"1234\"," +
-                "\"numberOfLicensesIncrease\": 10" +
+                "\"numberOfLicenses\": 10," +
+                "\"removeAllUnassignedLicenses\": true" +
                 "}";
         // @formatter:on
 
