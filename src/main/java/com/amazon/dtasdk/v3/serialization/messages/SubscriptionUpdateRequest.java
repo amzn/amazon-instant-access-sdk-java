@@ -7,8 +7,8 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 public class SubscriptionUpdateRequest extends SubscriptionRequest {
 
-    private Integer numberOfLicensesIncrease;
-    private Integer numberOfLicensesDecrease;
+    private Integer numberOfLicenses;
+    private Boolean removeAllUnassignedLicenses;
 
     @Override
     public SubscriptionUpdateRequest setOperation(InstantAccessOperationValue operationValue) {
@@ -26,21 +26,21 @@ public class SubscriptionUpdateRequest extends SubscriptionRequest {
         return this;
     }
 
-    public Integer getNumberOfLicensesIncrease() {
-        return numberOfLicensesIncrease;
+    public Integer getNumberOfLicenses() {
+        return numberOfLicenses;
     }
 
-    public SubscriptionUpdateRequest setNumberOfLicensesIncrease(Integer numberOfLicensesIncrease) {
-        this.numberOfLicensesIncrease = numberOfLicensesIncrease;
+    public SubscriptionUpdateRequest setNumberOfLicenses(Integer numberOfLicenses) {
+        this.numberOfLicenses = numberOfLicenses;
         return this;
     }
 
-    public Integer getNumberOfLicensesDecrease() {
-        return numberOfLicensesDecrease;
+    public Boolean getRemoveAllUnassignedLicenses() {
+        return removeAllUnassignedLicenses;
     }
 
-    public SubscriptionUpdateRequest setNumberOfLicensesDecrease(Integer numberOfLicensesDecrease) {
-        this.numberOfLicensesDecrease = numberOfLicensesDecrease;
+    public SubscriptionUpdateRequest setRemoveAllUnassignedLicenses(Boolean removeAllUnassignedLicenses) {
+        this.removeAllUnassignedLicenses = removeAllUnassignedLicenses;
         return this;
     }
 
@@ -70,10 +70,12 @@ public class SubscriptionUpdateRequest extends SubscriptionRequest {
             return false;
         if (userId != null ? !userId.equals(that.userId) : that.userId != null)
             return false;
-        if (numberOfLicensesIncrease != null ? !numberOfLicensesIncrease.equals(that.numberOfLicensesIncrease) : that.numberOfLicensesIncrease != null)
+        if (numberOfLicenses != null ? !numberOfLicenses.equals(that.numberOfLicenses) : that.numberOfLicenses != null)
             return false;
-        if (numberOfLicensesDecrease != null ? !numberOfLicensesDecrease.equals(that.numberOfLicensesDecrease) : that.numberOfLicensesDecrease != null)
-            return false;;
+        if (removeAllUnassignedLicenses != null ?
+                !removeAllUnassignedLicenses.equals(that.removeAllUnassignedLicenses) :
+                that.removeAllUnassignedLicenses != null)
+            return false;
         return true;
     }
 
@@ -82,8 +84,8 @@ public class SubscriptionUpdateRequest extends SubscriptionRequest {
         int result = super.hashCode();
         result = 31 * result + (productId != null ? productId.hashCode() : 0);
         result = 31 * result + (userId != null ? userId.hashCode() : 0);
-        result = 31 * result + (numberOfLicensesIncrease != null ? numberOfLicensesIncrease.hashCode() : 0);
-        result = 31 * result + (numberOfLicensesDecrease != null ? numberOfLicensesDecrease.hashCode() : 0);
+        result = 31 * result + (numberOfLicenses != null ? numberOfLicenses.hashCode() : 0);
+        result = 31 * result + (removeAllUnassignedLicenses != null ? removeAllUnassignedLicenses.hashCode() : 0);
         return result;
     }
 
@@ -94,8 +96,8 @@ public class SubscriptionUpdateRequest extends SubscriptionRequest {
                 .append("subscriptionId", subscriptionId)
                 .append("productId", productId)
                 .append("userId", userId)
-                .append("numberOfLicensesIncrease", numberOfLicensesIncrease)
-                .append("numberOfLicensesDecrease", numberOfLicensesDecrease)
+                .append("numberOfLicenses", numberOfLicenses)
+                .append("removeAllUnassignedLicenses", removeAllUnassignedLicenses)
                 .toString();
     }
 }
