@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2017-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ import com.amazon.dtasdk.utils.Clock;
 /**
  * This class either signs or verifies the signature on a @link(Request) for Signature version 1.
  * 
- * The signature algorithm is based off of AwsAuthV4 (https://w.amazon.com/index.php/AWSAuth/Signature/V4). However it
+ * The signature algorithm is based off of AwsAuthV4. However it
  * has minor changes to support two way communication between Amazon and External Parties.
  */
 public class Signer {
