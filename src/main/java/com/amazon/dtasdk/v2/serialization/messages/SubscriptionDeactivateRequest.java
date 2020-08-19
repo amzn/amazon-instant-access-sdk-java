@@ -18,9 +18,9 @@ import com.amazon.dtasdk.base.InstantAccessOperationValue;
 import com.amazon.dtasdk.base.SubscriptionPeriodValue;
 import com.amazon.dtasdk.base.SubscriptionReasonValue;
 import com.amazon.dtasdk.base.SubscriptionRequest;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
  * A request to deactivate a subscription.

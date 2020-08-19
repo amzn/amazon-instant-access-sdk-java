@@ -16,9 +16,9 @@ package com.amazon.dtasdk.serializer;
 
 import java.io.StringWriter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.jackson.map.ObjectMapper;
 
 public class JacksonSerializer {
     private static final Log log = LogFactory.getLog(JacksonSerializer.class);

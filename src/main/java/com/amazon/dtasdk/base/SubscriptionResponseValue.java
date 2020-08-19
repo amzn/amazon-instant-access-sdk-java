@@ -14,7 +14,7 @@
  */
 package com.amazon.dtasdk.base;
 
-import org.codehaus.jackson.annotate.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 /**
  * Possible response values for inclusion in a SubscriptionResponse

@@ -14,8 +14,8 @@
  */
 package com.amazon.dtasdk.base;
 
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Contains all the operations supported by Amazon Instant Access
