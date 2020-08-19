@@ -16,7 +16,7 @@ package com.amazon.dtasdk.serializer;
 
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.junit.Ignore;
 
 @Ignore

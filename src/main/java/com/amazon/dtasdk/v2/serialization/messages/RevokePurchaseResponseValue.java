@@ -14,7 +14,7 @@
  */
 package com.amazon.dtasdk.v2.serialization.messages;
 
-import org.codehaus.jackson.annotate.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 public enum RevokePurchaseResponseValue {
     OK,

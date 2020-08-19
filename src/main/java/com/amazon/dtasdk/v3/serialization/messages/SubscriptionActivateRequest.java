@@ -16,9 +16,9 @@ package com.amazon.dtasdk.v3.serialization.messages;
 
 import com.amazon.dtasdk.base.InstantAccessOperationValue;
 import com.amazon.dtasdk.base.SubscriptionRequest;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
  * A request to activate a subscription for a specified user and product

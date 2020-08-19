@@ -15,9 +15,9 @@
 package com.amazon.dtasdk.serializer;
 
 import com.amazon.dtasdk.serializer.TestJson.Name;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import junit.framework.Assert;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 
 import java.util.LinkedList;
