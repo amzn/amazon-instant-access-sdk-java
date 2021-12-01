@@ -19,6 +19,8 @@ import com.amazon.dtasdk.serializer.JacksonSerializer;
 import com.amazon.dtasdk.serializer.SerializationException;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 
 @Deprecated
@@ -33,9 +35,20 @@ public class InstantAccessRequestTest {
         request.setInfoField2("AMZN");
 
         String requestString = serializer.encode(request);
+        requestString = requestString.replace("{","").replace("}","").replace("\"","");
+        HashMap<String, String> payloadMap = new HashMap<String, String>();
+        String[] pairs = requestString.split(",");
+        for (int i=0; i<pairs.length; i++) {
+                String pair = pairs[i];
+                String[] keyValue = pair.split(":");
+                payloadMap.put(keyValue[0], keyValue[1]);
+        }
+        HashMap<String, String> expected = new HashMap<String, String>();
+        expected.put("operation", "GetUserId");
+        expected.put("infoField1", "nobody@amazon.com");
+        expected.put("infoField2", "AMZN");
 
-        assertEquals("{\"operation\":\"GetUserId\",\"infoField1\":\"nobody@amazon.com\",\"infoField2\":\"AMZN\"}",
-                requestString);
+        assertEquals(payloadMap, expected);
     }
 
     @Test
